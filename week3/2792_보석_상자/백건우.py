@@ -1,5 +1,9 @@
 # 질투심( 한 학생이 가질 수 있는 최대 개수의 보석)이 최소가 되어야한다.
 # python으로 시간초과 pypy로만 통과함
+#import sys
+#input = sys.stdin.readline
+# 위의 두 줄 추가하니까 python으로도 통과함 무조건 넣어야 할듯
+
 N, M = map(int,input().split())
 jewels = []
 for _ in range(M):
