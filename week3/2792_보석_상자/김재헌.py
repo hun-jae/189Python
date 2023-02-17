@@ -9,7 +9,7 @@ r = pow(10, 9)
 while l <= r:
     mid = (l + r) // 2
     x = 0
-    if mid == 0:
+    if mid == 0: #만약 r==1이 된다면 1을 출력
         x = n+1
         break
     for j in jewels:
