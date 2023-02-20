@@ -2,36 +2,31 @@ from math import ceil
 import sys
 N, HAtk = map(int, input().split())
 rooms = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
-curHP = 0
 maxHP = sys.maxsize
-cnt = 0
-#처음엔 물약을 다 쓴다는 가정 하에 몬스터 돌림
-# 두번째엔 물약 다 썼을때 즉 쉽게 깬 난이도기준 체력에서 돌림
-# 그럼 이번엔 물약효율 다 못뽑아서 체력 달리겠지
-# 그럼 다음번엔 maxHP에서 min을 더해보면
-while True:
-    cnt += 1
-    if cnt == 10:
-        break
-    min_ = 0
-    tmpHAtk = HAtk
 
-    for i in range(N):
-        t, a, h = rooms[i]
-        if t == 2:
-            tmpHAtk += a
-            curHP += h
-            if curHP > maxHP:
-                curHP = maxHP
-        elif t == 1:
-            curHP -= (ceil(h/tmpHAtk) - 1) * a
-            min_ = min(min_, curHP)
-    if cnt==1:
-        maxHP = -min_
-        curHP = maxHP
-    else:
-        if min_ == 0:
-            break
-        maxHP += -min_
-        curHP = maxHP
-print(maxHP+1)
+l = 0
+r = maxHP
+
+while l < r:
+    flag = 1
+    atk = HAtk
+    curHp = (l+r) // 2
+
+    for room in rooms:
+        t, a, h = room
+        
+        if t == 1: #몬스터
+            curHp -= a*(ceil(h / atk) - 1)
+            if curHp <=0: #중간에 죽으면
+                l = (l + r) // 2 + 1
+                flag=0
+                break
+
+        elif t == 2: #물약
+            curHp = min(curHp+h, (l+r)//2)
+            atk += a
+
+    if flag: #다 끝나도 살아있으면
+        r = (l + r) // 2
+print(l)
+
