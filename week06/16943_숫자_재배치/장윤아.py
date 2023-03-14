@@ -1,3 +1,8 @@
+A, B = input().split()
+res = -1
+A = list(A)
+visited = [0]*len(A)
+
 def dfs(idx, word):
     global res, visited
     if idx == len(A):
