@@ -1,4 +1,5 @@
 # bfs로 풀었는데 pypy로만 통과함 dfs로 바꿔서 다시 풀 예정
+# dfs로 풀려면 scc 알고리즘 사용해야함
 
 import sys
 from collections import deque
