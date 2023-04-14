@@ -53,7 +53,7 @@ ans = 0
 l, r = 0, len(right) - 1   # 넓은 범위에서 줄여나간다.
 while l <= r :
     ans = max(ans, r - l + 1 + 2 * min(left[l],right[r]))
-    if left[l] < right[r]:   # left[l]와 right[r] 중 더 작은 걸 키워야 더 긴 정답수열을 찾을 수 있다.
+    if left[l] < right[r]:   # left[l]와 right[r] 중 더 작은 걸  더 긴 정답수열을 찾을 수 있다.
         l += 1
     else :  
         r -= 1
