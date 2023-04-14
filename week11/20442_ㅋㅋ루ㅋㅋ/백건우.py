@@ -53,8 +53,8 @@ ans = 0
 l, r = 0, len(right) - 1   # 넓은 범위에서 줄여나간다.
 while l <= r :
     ans = max(ans, r - l + 1 + 2 * min(left[l],right[r]))
-    if left[l] < right[r]:   # left[l]이 right[r]보다 작으면 r을 아무리 줄여도 결국 최대로 가능한 k의 개수는 left[l]이다. 따라서 left[l]을 더 크게 만들어서 가능한 k의 개수를 더 늘려야 한다.
+    if left[l] < right[r]:   # left[l]와 right[r] 중 더 작은 걸 키워야 더 긴 정답수열을 찾을 수 있다.
         l += 1
-    else :  # 위와 
+    else :  
         r -= 1
 print(ans)
