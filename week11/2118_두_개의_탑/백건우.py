@@ -1,6 +1,6 @@
-/**
-*  pypy로만 통과함. left랑 right를 어떤 기준으로 증가시킬지 몰라서 브루트포스 느낌으로 구현함.
-*/
+"""
+pypy로만 통과함. left랑 right를 어떤 기준으로 증가시킬지 몰라서 브루트포스 느낌으로 구현함.
+"""
 
 n = int(input())
 dis = [int(input()) for _ in range(n)]
